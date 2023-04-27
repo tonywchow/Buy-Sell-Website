@@ -11,8 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
-  admin_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  -- category VARCHAR(255) NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
   description TEXT,
   thumbnail_photo_url VARCHAR(255) NOT NULL,
