@@ -8,6 +8,13 @@ const morgan = require("morgan");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+const cookieSession = require("cookie-session");
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
 app.set("view engine", "ejs");
 
@@ -32,6 +39,7 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const createPost = require("./routes/createform");
+const { cookie } = require("request");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
