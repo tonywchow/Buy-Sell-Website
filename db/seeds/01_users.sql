@@ -10,4 +10,5 @@ INSERT INTO users (name, email, address) VALUES ('Axel', 'axel@example.com', '83
 INSERT INTO users (name, email, address) VALUES ('Jan', 'jan@example.com', '209 Freitag boulevard');
 INSERT INTO users (name, email, address) VALUES ('Evgeny', 'evgeny@example.com', '745 Kandera street');
 INSERT INTO users (name, email, address) VALUES ('Aditya', 'aditya@example.com', '989 Compel avenue');
+INSERT INTO users (name, email, address) VALUES ('Sammy', 'sammy@example.com', '748 Glass avenue');
 
