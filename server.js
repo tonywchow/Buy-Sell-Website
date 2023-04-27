@@ -43,9 +43,30 @@ app.use('/users', usersRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('homepage');
+});
+
+// My Listings
+app.get('/mylistings', (req, res) => {
+  res.render('mylistings');
+});
+
+// Create Form
+app.get('/create', (req, res) => {
+  res.render('createform');
+});
+
+// Post Create Form
+app.post('/create', (req, res) => {
+  // Code to process the form data goes here
+  // After processing the form, redirect back to the homepage with the new data
+  res.redirect('/');
+});
+
+// Favourites
+app.get('/favourites', (req, res) => {
+  res.render('favourites');
 });
 
 app.listen(PORT, () => {
