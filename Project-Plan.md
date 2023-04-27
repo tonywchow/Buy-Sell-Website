@@ -71,19 +71,22 @@ USERS (USER SESSION IE COOKIE SESSION)
 GET is shareable/repeatable and is shown in the URL (filtering)
 POST submits a body of key values pairs
 
-GET /favourite/id
-GET /message/:id or pull from product
 POST /message/:id
 
-B GET /product/:id
+POST /create/:id/
+POST /login/:id/mylistings/edit
+POST /login/:id/mylistings/sold
+POST /login/:id/mylistings/delete
 
-E POST /product/:id/edit
-E POST /product/:id/sold
-A POST /product/:id/create
-D POST /product/:id/delete
+POST /login/:id/edit/:productID
+POST /login/:id/sold/:productID
+POST /login/:id/delete/:productID
 
-B GET /product
-R GET /users/:id
+GET /
+GET login/:id/mylistings/
+GET /create
+GET /favourites/:id
+GET login/:id/contact/:productID/
 
 EMAIL (MESSAGE HISTORY)
 
