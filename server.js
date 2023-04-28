@@ -1,10 +1,13 @@
 // load .env data into process.env
 require('dotenv').config();
 
+
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const db = require('./db/connection');
+const homepageRouter = require('./routes/homepage');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -32,20 +35,36 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/', homepageRouter);
+
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get('/', (req, res) => {
-  res.render('homepage');
-});
+
+
+//Initial routes-KC
+
+// app.get("/", (req, res) => {
+//   db.query(`
+//     SELECT * FROM products
+//   `)
+//     .then((result) => {
+//       const products = result.rows;
+//       console.log(products)
+//       res.render("homepage", { products });
+//     })
+//     .catch((error) => console.log(error));
+// });
 
 // My Listings
 app.get('/mylistings', (req, res) => {
@@ -59,8 +78,8 @@ app.get('/create', (req, res) => {
 
 // Post Create Form
 app.post('/create', (req, res) => {
-  // Code to process the form data goes here
-  // After processing the form, redirect back to the homepage with the new data
+  // Form submit here
+  // Then go back to homepage
   res.redirect('/');
 });
 
