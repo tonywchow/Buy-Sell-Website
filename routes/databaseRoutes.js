@@ -41,7 +41,7 @@ const addProduct = function (products) {
   )`;
 
   let values = [
-    products.admin_id,
+    products.id,
     products.title,
     products.description,
     products.thumbnail_photo_url,
