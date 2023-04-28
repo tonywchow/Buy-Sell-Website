@@ -12,6 +12,11 @@ router.get("/", (req, res) => {
   res.render("createform");
 });
 
+router.get("/:id", (req, res) => {
+  console.log(req.params["id"]);
+  res.render("createform");
+});
+
 router.post("/", (req, res) => {
   console.log(req.body);
   res.redirect("/");

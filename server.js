@@ -39,7 +39,6 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const createPost = require("./routes/createform");
-const { cookie } = require("request");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -56,6 +55,18 @@ app.use("/create", createPost);
 app.get("/", (req, res) => {
   res.render("homepage");
 });
+
+//Login
+// app.get("/login/:id", (req, res) => {
+//   // using encrypted cookies
+//   req.session.user_id = req.params.id;
+
+//   // or using plain-text cookies
+//   res.cookie("user_id", req.params.id);
+
+//   // send the user somewhere
+//   res.redirect("/");
+// });
 
 // My Listings
 app.get("/mylistings", (req, res) => {
