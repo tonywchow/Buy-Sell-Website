@@ -1,23 +1,18 @@
-// /*
-//  * Displaying all items on homepage
-//  /
+const express = require('express');
+const router  = express.Router();
+const db = require('../db/connection');
 
-const express = require("express");
-const router = express.Router();
-
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(
-      `
-    SELECT * FROM products
-    ORDER BY date ASC
-    `
-    )
-      .then((result) => {
-        console.log(result.rows);
-      })
-      .catch((error) => console.log(error));
-  });
-};
+router.get('/', (req, res) => {
+  const query = `SELECT * FROM products`;
+  db.query(query)
+    .then(data => {
+      const products = data.rows;
+      res.render('homepage', { products });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Error retrieving products from database');
+    });
+});
 
 module.exports = router;
