@@ -14,12 +14,43 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script src="/scripts/filters.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
   <% include partials/header.ejs %>
-  <h1>Definitelty Not Kijiji Homepage!🥔</h1>
-</body>
+  <h1>Product Listings</h1>
+  <form method="get" action="/">
+    <div class="filter-options">
+      <label>Sort by:</label>
+      <select name="sort">
+        <option value="low-to-high">Price: Low to High</option>
+        <option value="high-to-low">Price: High to Low</option>
+      </select>
 
+      <label>Price Range:</label>
+      <input type="number" name="min-price" placeholder="Minimum price">
+      <input type="number" name="max-price" placeholder="Maximum price">
+
+      <button type="submit">Filter</button>
+    </div>
+  </form>
+  <div class="product-list">
+    <% products.forEach(function(product) { %>
+      <div class="product">
+        <div class="thumbnail">
+          <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
+        </div>
+        <div class="details">
+          <h2 class="title"><%= product.title %></h2>
+          <p class="description"><%= product.description %></p>
+          <p class="price"><%= product.price %></p>
+          <a href="mailto:example@example.com">example@example.com</a>
+          <button class="favorite">Add to favorites</button>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</body>
 </html>
