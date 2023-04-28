@@ -13,11 +13,16 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  if (req.session.user_id === "1") {
+    console.log("logged in users");
+  }
+  console.log(req.session);
   console.log(req.params["id"]);
   res.render("createform");
 });
 
 router.post("/", (req, res) => {
+  console.log(req.session.user_id);
   console.log(req.body);
   res.redirect("/");
 });
