@@ -57,16 +57,16 @@ app.get("/", (req, res) => {
 });
 
 //Login
-// app.get("/login/:id", (req, res) => {
-//   // using encrypted cookies
-//   req.session.user_id = req.params.id;
+app.get("/login/:id", (req, res) => {
+  // using encrypted cookies
+  req.session.user_id = req.params.id;
 
-//   // or using plain-text cookies
-//   res.cookie("user_id", req.params.id);
+  // or using plain-text cookies
+  res.cookie("user_id", req.params.id);
 
-//   // send the user somewhere
-//   res.redirect("/");
-// });
+  // send the user somewhere
+  res.redirect("/");
+});
 
 // My Listings
 app.get("/mylistings", (req, res) => {
