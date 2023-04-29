@@ -7,9 +7,17 @@
 
 const express = require("express");
 const router = express.Router();
+const databaseQueries = require("../db/queries/databaseQueries");
 
 router.get("/", (req, res) => {
-  res.render("editform");
+  databaseQueries
+    .getProductWithId(13)
+    .then((product) => {
+      // res.send(product);
+      console.log("from EJS", product.title);
+      res.render("editform", { product });
+    })
+    .catch((error) => res.send(error));
 });
 
 module.exports = router;
