@@ -1,5 +1,23 @@
-const { query } = require("express");
-const db = require('../connection');
+const db = require("../connection");
+
+const getUserWithId = function (id) {
+  const queryString = `
+  SELECT *
+  FROM users
+  WHERE id = $1`;
+  const values = [id];
+
+  return db
+    .query(queryString, values)
+    .then((result) => {
+      if (result.rows) {
+        return result.rows[0];
+      } else {
+        return null;
+      }
+    })
+    .catch((error) => console.log(error));
+};
 
 const getAllProducts = (limit) => {
   limit = 10;
@@ -23,13 +41,12 @@ Adding product to database
 */
 const addProduct = function (products) {
   let queryString = `
-  INSERT INTO products(admin_id, title, description, thumbnail_photo_url, price)
+  INSERT INTO products(user_id, title, description, thumbnail_photo_url, price)
   VALUES ($1, $2, $3, $4, $5)
-  RETURNING *
-  )`;
-
+  `;
+  
   let values = [
-    products.id,
+    products.user_id,
     products.title,
     products.description,
     products.thumbnail_photo_url,
@@ -57,7 +74,7 @@ const getUserFavourites = function (admin_id) {
 
   const values = [guest_id];
 
-  return client
+  return db
     .query(queryString, values)
     .then((result) => {
       console.log(result.rows);
@@ -67,6 +84,7 @@ const getUserFavourites = function (admin_id) {
 };
 
 module.exports = {
+  getUserWithId,
   addProduct,
   getUserFavourites,
   getAllProducts,
