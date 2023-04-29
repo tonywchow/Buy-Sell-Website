@@ -197,3 +197,15 @@ Medhanie: M-T 5/6PM - 12PM W-F 8:30PM-12AM Saturday - All Day, Sunday - All day 
 
 Meeting Monday, Wednesday, Friday 8:30PM
 Big meeting Tuesday after lecture.
+
+
+Complete SCSS for Create and edit 
+medhanie mylist, sold, delete, edit
+kevin Homepage, favourites (collab with medhanie on my listings)
+
+- intro, background
+- one person screen share
+- one person walking through the app and the other drives 
+- lessons learned, takeaways
+- challenges we overcame
+- demo the frontend
