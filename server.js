@@ -5,6 +5,8 @@ require("dotenv").config();
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
+const db = require("./db/connection");
+const homepageRouter = require("./routes/homepage");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -50,6 +52,8 @@ app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 app.use("/create", createPost);
 app.use("/edit", editPost);
+app.use("/", homepageRouter);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -69,6 +73,11 @@ app.get("/login/:id", (req, res) => {
 
   // send the user somewhere
   res.redirect("/");
+});
+
+// My Listings
+app.get("/mylistings", (req, res) => {
+  res.render("mylistings");
 });
 
 // My Listings
