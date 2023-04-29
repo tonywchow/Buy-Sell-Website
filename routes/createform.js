@@ -25,6 +25,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   console.log(req.session.user_id);
   console.log(req.body);
+
   res.redirect("/");
 });
 
