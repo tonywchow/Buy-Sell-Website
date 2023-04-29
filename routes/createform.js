@@ -20,8 +20,12 @@ router.post("/", (req, res) => {
   databaseQueries
     .addProduct(newProduct)
     // .then((product) => {
-    //   res.send(product);
-    //   console.log(result.rows);
+    //   res.send({
+    //     product: {
+    //       title: product.title,
+    //     },
+    //   });
+    //   console.log(product);
     //   res.redirect("/");
     // })
     .catch((error) => res.send(error));
