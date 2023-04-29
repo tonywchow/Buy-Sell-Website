@@ -71,24 +71,42 @@ USERS (USER SESSION IE COOKIE SESSION)
 GET is shareable/repeatable and is shown in the URL (filtering)
 POST submits a body of key values pairs
 
-POST /message/:id
+Seller: through products with conversations (stretch)
+Buyer: looking for conversations (sent first messages) (stretch)
 
-POST /create/:id/
-POST /login/:id/mylistings/edit
-POST /login/:id/mylistings/sold
-POST /login/:id/mylistings/delete
+GET /messageList (stretch)
+GET /message/productID (stretch)
+POST /message/productID (stretch)
 
-POST /login/:id/edit/:productID
-POST /login/:id/sold/:productID
-POST /login/:id/delete/:productID
+POST /create
+POST /edit/:productID (AJAX => stretch)
+POST /sold/:productID (AJAX => stretch)
+POST /delete/:productID
+POST /favourites/:productID
 
 GET /
-GET login/:id/mylistings/
+GET /login/:id
+GET /mylistings/
 GET /create
-GET /favourites/:id
-GET login/:id/contact/:productID/
+
+GET /contact/:productID/
 
 EMAIL (MESSAGE HISTORY)
+
+Features Item
+Sale
+Newest
+Hard code specific items (showcase for personality of each member)
+
+Edit post ()
+pass database values into template vars to pass into ejs to pre-fill the form in Edit Post
+
+<%= id %>
+
+
+console.log(3);
+
+
 
 ### MVP vs MVD
 
@@ -179,3 +197,15 @@ Medhanie: M-T 5/6PM - 12PM W-F 8:30PM-12AM Saturday - All Day, Sunday - All day 
 
 Meeting Monday, Wednesday, Friday 8:30PM
 Big meeting Tuesday after lecture.
+
+
+Complete SCSS for Create and edit 
+medhanie mylist, sold, delete, edit
+kevin Homepage, favourites (collab with medhanie on my listings)
+
+- intro, background
+- one person screen share
+- one person walking through the app and the other drives 
+- lessons learned, takeaways
+- challenges we overcame
+- demo the frontend
