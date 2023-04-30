@@ -1,5 +1,26 @@
 const db = require("../connection");
 
+//Get user with cookie session id
+
+const getUserWithId = function (id) {
+  const queryString = `
+  SELECT *
+  FROM users
+  WHERE id = $1`;
+  const values = [id];
+
+  return db
+    .query(queryString, values)
+    .then((result) => {
+      if (result.rows) {
+        return result.rows[0];
+      } else {
+        return null;
+      }
+    })
+    .catch((error) => console.log(error));
+};
+
 /*
 Get user email from user id
 */
@@ -119,6 +140,7 @@ const getUserFavourites = function (admin_id) {
 
 module.exports = {
   getEmailWithId,
+  getUserWithId,
   getProductWithId,
   addProduct,
   editProduct,
