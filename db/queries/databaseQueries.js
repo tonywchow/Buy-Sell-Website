@@ -1,5 +1,8 @@
 const db = require("../connection");
 
+/*
+Get product information from productID
+*/
 const getProductWithId = function (id) {
   const queryString = `
   SELECT *
@@ -16,42 +19,6 @@ const getProductWithId = function (id) {
       } else {
         return null;
       }
-    })
-    .catch((error) => console.log(error));
-};
-
-const getUserWithId = function (id) {
-  const queryString = `
-  SELECT *
-  FROM users
-  WHERE id = $1`;
-  const values = [id];
-
-  return db
-    .query(queryString, values)
-    .then((result) => {
-      if (result.rows) {
-        return result.rows[0];
-      } else {
-        return null;
-      }
-    })
-    .catch((error) => console.log(error));
-};
-
-const getAllProducts = (limit) => {
-  limit = 10;
-
-  let queryString = `
-  SELECT * FROM products
-  ORDER BY date ASC
-  `;
-
-  return db
-    .query(queryString)
-    .then((result) => {
-      console.log(result.rows);
-      return result.rows;
     })
     .catch((error) => console.log(error));
 };
@@ -80,17 +47,6 @@ const addProduct = function (products) {
     })
     .catch((error) => console.log(error));
 };
-
-// let queryString = `
-// UPDATE products SET title = $1, description = $2, thumbnail_photo_url = $3, price = $4
-// WHERE id = $5
-// VALUES ($1, $2, $3, $4, $5)
-// `;
-
-// let queryString = `
-// UPDATE products SET title = ${product.title}, description = ${product.description}, thumbnail_photo_url = ${product.thumbnail_photo_url}, price = ${product.price}
-// WHERE id = ${productID}
-// `;
 
 //Edit a post
 const editProduct = function (productID, product) {
@@ -139,9 +95,7 @@ const getUserFavourites = function (admin_id) {
 
 module.exports = {
   getProductWithId,
-  getUserWithId,
   addProduct,
   editProduct,
   getUserFavourites,
-  getAllProducts,
 };
