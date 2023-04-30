@@ -1,9 +1,9 @@
 @import "createForm";
 body {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex start;
   min-height: 100vh;
 
   background: rgb(163, 208, 219);
