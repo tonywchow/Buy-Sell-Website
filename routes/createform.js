@@ -19,15 +19,7 @@ router.post("/", (req, res) => {
   newProduct.user_id = userID;
   databaseQueries
     .addProduct(newProduct)
-    // .then((product) => {
-    //   res.send({
-    //     product: {
-    //       title: product.title,
-    //     },
-    //   });
-    //   console.log(product);
-    //   res.redirect("/");
-    // })
+    .then(res.redirect("/mylistings"))
     .catch((error) => res.send(error));
 });
 
