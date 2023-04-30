@@ -1,9 +1,24 @@
-@import "createForm";
+nav {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+nav a {
+  color: #212529;
+}
+
+nav .navbar-brand {
+  font-weight: bold;
+}
+
 body {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 
   background: rgb(163, 208, 219);
