@@ -23,6 +23,7 @@ router.post("/", (req, res) => {
   const changesToProduct = req.body;
   databaseQueries
     .editProduct(2, changesToProduct)
+    .then(res.redirect("/mylistings"))
     .catch((error) => res.send(error));
 });
 
