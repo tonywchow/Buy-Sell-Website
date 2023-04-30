@@ -21,14 +21,17 @@
   <% include partials/header.ejs %>
   <h1>My Listings 🥔</h1>
   <div style="display: flex">
-  <form method="POST" action="/api/mylistings/edit">
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <form action="mylisting/edit">
+      <input type="submit" value="Edit" />
+    </form>
+  <!-- <form method="POST" action="/mylistings/edit">
+    <button type="submit" class="btn btn-primary">Edit</button> -->
   </form>
-  <form method="POST" action="/api/mylistings/delete">
+  <form method="POST" action="/mylistings/delete">
     <button type="submit" class="btn btn-primary">Delete</button>
   </form>
   </form>
-  <form method="POST" action="/api/mylistings/sold?_method=POST">
+  <form method="POST" action="/mylistings/sold?_method=POST">
     <button type="submit" class="btn btn-primary">Sold</button>
   </form>
   </div>
