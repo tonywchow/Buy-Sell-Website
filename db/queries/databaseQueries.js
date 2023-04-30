@@ -1,13 +1,37 @@
 const db = require("../connection");
 
 /*
+Get user email from user id
+*/
+const getEmailWithId = function (id) {
+  const queryString = `
+  SELECT * FROM users
+  WHERE id = $1
+  `;
+  console.log("database query test", id);
+  const values = [id];
+  return db
+    .query(queryString, values)
+    .then((result) => {
+      if (result.rows) {
+        // console.log("test", result.rows);
+        return result.rows[0];
+      } else {
+        return null;
+      }
+    })
+    .catch((error) => console.log(error));
+};
+
+/*
 Get product information from productID
 */
 const getProductWithId = function (id) {
   const queryString = `
-  SELECT *
+  SELECT products.*, name, email
   FROM products
-  WHERE id = $1`;
+  JOIN users on users.id = user_id
+  WHERE products.id = $1`;
   const values = [id];
 
   return db
@@ -94,6 +118,7 @@ const getUserFavourites = function (admin_id) {
 };
 
 module.exports = {
+  getEmailWithId,
   getProductWithId,
   addProduct,
   editProduct,
