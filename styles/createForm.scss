@@ -2,8 +2,8 @@
   background: salmon;
 }
 
-.create-form {
-  width: 80%;
+.input-form {
+  width: 50%;
   height: 100px;
 }
 
@@ -19,12 +19,18 @@
   justify-content: space-between;
   padding: 10px;
 }
-// .label {
-//   display: flex;
-//   justify-content: flex-start;
-// }
 
-// .form {
-//   display: flex;
-//   justify-content: flex-end;
-// }
+.form-control {
+  display: flex;
+  width: 50%;
+}
+.text-space {
+  display: flex;
+  width: 50%;
+  height: 200px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
