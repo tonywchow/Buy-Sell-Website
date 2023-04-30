@@ -9,24 +9,42 @@ router.get('/', (req, res) => {
 
 //Edit product
 router.post('/edit/:product_id', (req, res) => {
-  res.redirect('/create');
+  res.redirect('/edit');
 })
 
 //Delete product
 router.post('/delete/:product_id', (req, res) => {
-  // const userId = req.session.userId;
+  const product_id = req.session.product_id;
 
-  const qs = `DELETE FROM products WHERE user_id=1`;
+  const qs = `DELETE FROM products WHERE products.id=${product_id}`;
 
   db.query(qs)
     .then((result) => {
-      console.log('result is: ', result);
+      // console.log('result is: ', result);
       // res.send('Product deleted!');
       res.redirect('/');
     })
     .catch((err) => {
-      console.log('error: ', err.message);
+      // console.log('error: ', err.message);
       res.send('Product cannot be deleted');
+    })
+
+})
+
+//Mark item as sold
+router.post('/sold/:product_id', (req, res) => {
+  const qs = `UPDATE products
+              SET availability = false, title= 'SOLD!'
+              WHERE product.id = ${product_id};`
+
+  db.query(qs)
+    .then((result) => {
+      console.log('result: ', result);
+      res.redirect('/mylistings');
+    })
+    .catch((err) => {
+      console.log('error: ', err);
+      res.send('Product does not exist!');
     })
 
 })
