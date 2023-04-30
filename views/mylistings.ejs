@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% include partials/header.ejs %>
-  <h1>My Listings 🥔</h1>
-
-    <!-- <div class="page-header">
+<% include partials/header.ejs %>
+  <!-- <div class="page-header">
     <h1>Product Listings</h1>
   </div> -->
   <div class="filter-container">
@@ -28,20 +26,26 @@
           <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
         </div>
         <div class="details">
-          <h2 class="title"><%= product.title %></h2>
-          <p class="description"><%= product.description %></p>
+          <h2 class="title">
+            <%= product.title %>
+          </h2>
+          <p class="description">
+            <%= product.description %>
+          </p>
           <a href="mailto:example@example.com">example@example.com</a>
         </div>
         <div class="right-block">
-          <p class="price"><%= product.price %></p>
+          <p class="price">
+            <%= product.price %>
+          </p>
           <div class="contact-favourite">
             <a href="mailto:example@example.com">example@example.com</a>
             <button class="favorite">Add to favorites</button>
           </div>
         </div>
       </div>
-    <% }); %>
+      <% }); %>
   </div>
-</body>
-</html>
+  </body>
 
+</html>
