@@ -81,25 +81,35 @@ const addProduct = function (products) {
     .catch((error) => console.log(error));
 };
 
+// let queryString = `
+// UPDATE products SET title = $1, description = $2, thumbnail_photo_url = $3, price = $4
+// WHERE id = $5
+// VALUES ($1, $2, $3, $4, $5)
+// `;
+
+// let queryString = `
+// UPDATE products SET title = ${product.title}, description = ${product.description}, thumbnail_photo_url = ${product.thumbnail_photo_url}, price = ${product.price}
+// WHERE id = ${productID}
+// `;
+
 //Edit a post
-const editProduct = function (productID, products) {
+const editProduct = function (productID, product) {
   let queryString = `
   UPDATE products SET title = $1, description = $2, thumbnail_photo_url = $3, price = $4
   WHERE id = $5
-  VALUES ($1, $2, $3, $4, $5)
   `;
 
   let values = [
-    products.title,
-    products.description,
-    products.thumbnail_photo_url,
-    products.price,
+    product.title,
+    product.description,
+    product.thumbnail_photo_url,
+    product.price,
     productID,
   ];
+
   return db
     .query(queryString, values)
     .then((result) => {
-      console.log(result.rows);
       return result.rows;
     })
     .catch((error) => console.log(error));
