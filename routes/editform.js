@@ -11,12 +11,18 @@ const databaseQueries = require("../db/queries/databaseQueries");
 
 router.get("/", (req, res) => {
   databaseQueries
-    .getProductWithId(13)
+    .getProductWithId(2)
     .then((product) => {
-      // res.send(product);
-      console.log("from EJS", product.title);
+      console.log(product.price);
       res.render("editform", { product });
     })
+    .catch((error) => res.send(error));
+});
+
+router.post("/", (req, res) => {
+  const changesToProduct = req.body;
+  databaseQueries
+    .editProduct(2, changesToProduct)
     .catch((error) => res.send(error));
 });
 
