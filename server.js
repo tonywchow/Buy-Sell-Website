@@ -43,7 +43,7 @@ const createPost = require("./routes/createform");
 const databaseRoutes = require("./routes/databaseRoutes");
 const editPost = require("./routes/editform");
 const homepageRouter = require("./routes/homepage");
-const filtersRouter = require('./routes/filters');
+const productFiltersRouter = require('./routes/productfilters');
 const myListingsRouter = require('./routes/mylistings');
 
 // Mount all resource routes
@@ -55,7 +55,7 @@ app.use("/users", usersRoutes);
 app.use("/create", createPost);
 app.use("/edit", editPost);
 app.use("/", homepageRouter);
-app.use("/filters", filtersRouter);
+app.use("/filters", productFiltersRouter);
 app.use("/mylistings", myListingsRouter);
 
 // Note: mount other resources here, using the same pattern above

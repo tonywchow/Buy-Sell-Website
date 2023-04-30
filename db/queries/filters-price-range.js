@@ -7,11 +7,11 @@ const filterByMinPrice = (minPrice) => {
 
 
 const filterByMaxPrice = (maxPrice) => {
-  return `SELECT * FROM products WHERE price <= ${maxPrice};`
+  return `SELECT * FROM products WHERE price <= ${maxPrice}`
 };
 
 const filterByPriceRange = (minPrice, maxPrice) => {
-  return `SELECT * FROM products WHERE price BETWEEN ${minPrice} AND ${maxPrice};`
+  return `SELECT * FROM products WHERE price BETWEEN ${minPrice} AND ${maxPrice}`
 };
 
 // const sortByLowToHighPrice = () => {
