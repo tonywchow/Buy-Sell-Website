@@ -1,3 +1,30 @@
 * {
   background: salmon;
 }
+
+.create-form {
+  width: 80%;
+  height: 100px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  background: yellow;
+  justify-content: space-between;
+}
+
+.elements {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+// .label {
+//   display: flex;
+//   justify-content: flex-start;
+// }
+
+// .form {
+//   display: flex;
+//   justify-content: flex-end;
+// }
