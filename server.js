@@ -9,13 +9,13 @@ const db = require("./db/connection");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-// const cookieSession = require("cookie-session");
-// app.use(
-//   cookieSession({
-//     name: "session",
-//     keys: ["key1"],
-//   })
-// );
+const cookieSession = require("cookie-session");
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
 app.set("view engine", "ejs");
 
@@ -44,6 +44,7 @@ const editPost = require("./routes/editform");
 const homepageRouter = require("./routes/homepage");
 const productFiltersRouter = require("./routes/productfilters");
 const myListingsRouter = require("./routes/mylistings");
+const login = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -56,6 +57,7 @@ app.use("/edit", editPost);
 app.use("/", homepageRouter);
 app.use("/filters", productFiltersRouter);
 app.use("/mylistings", myListingsRouter);
+app.use("/login", login);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -64,18 +66,6 @@ app.use("/mylistings", myListingsRouter);
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("homepage");
-});
-
-//Login
-app.get("/login/:id", (req, res) => {
-  // using encrypted cookies
-  req.session.user_id = req.params.id;
-
-  // or using plain-text cookies
-  res.cookie("user_id", req.params.id);
-
-  // send the user somewhere
-  res.redirect("/");
 });
 
 // My Listings
