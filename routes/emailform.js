@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const emailQuery = require("../db/queries/get-email-with-id");
+const databaseQueries = require("../db/queries/databaseQueries");
 const sgMail = require("@sendgrid/mail");
 
 router.get("/", (req, res) => {
