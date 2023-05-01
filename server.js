@@ -5,6 +5,8 @@ require("dotenv").config();
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
+const db = require("./db/connection");
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 // const cookieSession = require("cookie-session");
@@ -39,6 +41,9 @@ const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const createPost = require("./routes/createform");
 const editPost = require("./routes/editform");
+const homepageRouter = require("./routes/homepage");
+const productFiltersRouter = require("./routes/productfilters");
+const myListingsRouter = require("./routes/mylistings");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -49,6 +54,8 @@ app.use("/users", usersRoutes);
 app.use("/create", createPost);
 app.use("/edit", editPost);
 app.use("/", homepageRouter);
+app.use("/filters", productFiltersRouter);
+app.use("/mylistings", myListingsRouter);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -57,6 +64,23 @@ app.use("/", homepageRouter);
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("homepage");
+});
+
+//Login
+app.get("/login/:id", (req, res) => {
+  // using encrypted cookies
+  req.session.user_id = req.params.id;
+
+  // or using plain-text cookies
+  res.cookie("user_id", req.params.id);
+
+  // send the user somewhere
+  res.redirect("/");
+});
+
+// My Listings
+app.get("/mylistings", (req, res) => {
+  res.render("mylistings");
 });
 
 // My Listings
