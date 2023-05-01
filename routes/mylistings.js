@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   db.query(query)
     .then(data => {
       const products = data.rows;
-      res.render('homepage', { products });
+      res.render('mylistings', { products });
     })
     .catch(err => {
       console.log(err);
@@ -16,4 +16,3 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
-
