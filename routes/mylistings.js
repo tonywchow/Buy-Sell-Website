@@ -3,9 +3,9 @@ const router = express.Router();
 const db = require('../db/connection');
 
 // My Listings
-router.get('/', (req, res) => {
-  res.render('mylistings');
-});
+// router.get('/', (req, res) => {
+//   res.render('mylistings');
+// });
 
 //Edit product
 router.post('/edit/:product_id', (req, res) => {
