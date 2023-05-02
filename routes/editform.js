@@ -2,7 +2,6 @@
  * All routes to edit a new post are defined here
  * Since this file is loaded in server.js into /edit,
  *   these routes are mounted onto /edit
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
 const express = require("express");
@@ -10,7 +9,7 @@ const router = express.Router();
 const productQuery = require("../db/queries/get-product-with-id");
 const editQuery = require("../db/queries/edit-product");
 
-//This GET HTTP request is to get product information from productID once the edit button is clicked in /mylistings route. This will auto populate the forms in the EJS file
+//This GET HTTP request is to get product information from productID once the edit button is clicked in /mylistings route. This will auto populate the values of the database in the forms so the user doesnt need to type everything again.
 router.get("/", (req, res) => {
   productQuery
     .getProductWithId(1) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
