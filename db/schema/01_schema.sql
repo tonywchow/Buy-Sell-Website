@@ -14,7 +14,7 @@ CREATE TABLE products (
   title VARCHAR(255) NOT NULL,
   description TEXT,
   thumbnail_photo_url VARCHAR(255) NOT NULL,
-  price MONEY NOT NULL,
+  price DECIMAL NOT NULL,
   availability BOOLEAN NOT NULL DEFAULT TRUE,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

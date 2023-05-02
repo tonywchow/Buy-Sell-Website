@@ -7,7 +7,7 @@
 
 const express = require("express");
 const router = express.Router();
-const databaseQueries = require("../db/queries/databaseQueries");
+const createQuery = require("../db/queries/add-product");
 
 router.get("/", (req, res) => {
   res.render("createform");
@@ -17,7 +17,7 @@ router.post("/", (req, res) => {
   userID = req.session.user_id;
   const newProduct = req.body;
   newProduct.user_id = userID;
-  databaseQueries
+  createQuery
     .addProduct(newProduct)
     .then(res.redirect("/mylistings"))
     .catch((error) => res.send(error));

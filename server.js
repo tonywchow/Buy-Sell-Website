@@ -6,6 +6,8 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
 const homepageRouter = require("./routes/homepage");
+const db = require("./db/connection");
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 const cookieSession = require("cookie-session");
@@ -48,6 +50,10 @@ const createPost = require("./routes/createform");
 const editPost = require("./routes/editform");
 const login = require("./routes/login");
 const email = require("./routes/emailform");
+const homepageRouter = require("./routes/homepage");
+const productFiltersRouter = require("./routes/productfilters");
+const myListingsRouter = require("./routes/mylistings");
+const login = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -60,6 +66,9 @@ app.use("/edit", editPost);
 app.use("/", homepageRouter);
 app.use("/login", login);
 app.use("/email", email);
+app.use("/filters", productFiltersRouter);
+app.use("/mylistings", myListingsRouter);
+app.use("/login", login);
 
 // Note: mount other resources here, using the same pattern above
 
