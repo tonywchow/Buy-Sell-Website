@@ -1,0 +1,36 @@
+* {
+  background: salmon;
+}
+
+.input-form {
+  width: 50%;
+  height: 100px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  background: yellow;
+  justify-content: space-between;
+}
+
+.elements {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.form-control {
+  display: flex;
+  width: 50%;
+}
+.text-space {
+  display: flex;
+  width: 50%;
+  height: 200px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
