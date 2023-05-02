@@ -68,16 +68,6 @@ app.get("/", (req, res) => {
   res.render("homepage");
 });
 
-// My Listings
-app.get("/mylistings", (req, res) => {
-  res.render("mylistings");
-});
-
-// My Listings
-app.get("/mylistings", (req, res) => {
-  res.render("mylistings");
-});
-
 // Favourites
 app.get("/favourites", (req, res) => {
   res.render("favourites");

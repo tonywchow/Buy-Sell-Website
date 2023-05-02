@@ -4,14 +4,14 @@ const db = require('../db/connection');
 const { getProductByUserId } = require('../db/queries/get-product-by-userID');
 
 // Route to show products for a specific user
-router.get('/myproducts/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const userId = req.params.id;
   const productQuery = getProductByUserId(userId);
 
   db.query(productQuery)
-    .then((result) => {
-      const products = result.rows;
-      res.render('index', { products });
+    .then((data) => {
+      const products = data.rows || [];
+      res.render('mylistings', { products });
     })
     .catch((err) => {
       console.log(err);
@@ -19,5 +19,5 @@ router.get('/myproducts/:id', (req, res) => {
     });
 });
 
-module.exports = router;
 
+module.exports = router;
