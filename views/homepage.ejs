@@ -33,7 +33,7 @@
         <div class="right-block">
           <p class="price"><%= product.price %></p>
           <div class="contact-favourite">
-            <a href="mailto:example@example.com">example@example.com</a>
+            <a href="/email/<%=product.id%>" class="btn btn-primary"><%= product.email %></a>
             <button class="favorite">Add to favorites</button>
           </div>
         </div>
