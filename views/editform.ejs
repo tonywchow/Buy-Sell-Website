@@ -1,37 +1,22 @@
 
     <% include partials/header.ejs %>
-    <h1>Edit Post 🥔</h1>
-    <form action="/edit" method="POST">
+    <h1>Edit Post</h1>
+    <form method="POST" action="/editform/product.id/edit ">
       <div class="form-group">
+
         <label for="title">Title: </label>
-        <input
-          class="form-control"
-          type="text"
-          name="title"
-          placeholder="Title"
-        />
+        <input autocomplete='off' class='form-control' type="text" name="title" value="<%= product.title %>">
+
         <label for="description">Description: </label>
-        <input
-          class="form-control"
-          type="text"
-          name="description"
-          placeholder="Description"
-        />
+        <input autocomplete='off' class='form-control' type="text" name="description" value="<%= product.description %>">
+
         <label for="photoURL">Thumbnail Photo URL: </label>
-        <input
-          class="form-control"
-          type="url"
-          name="photoURL"
-          placeholder="Photo URL"
-        />
+        <input autocomplete='off' class='form-control' type="url" name="photoURL" value="<%= product.URL %>">
+
         <label for="price">Price: </label>
-        <input
-          class="form-control"
-          type="number"
-          name="price"
-          placeholder="$"
-        />
+        <input autocomplete='off' class='form-control' type="text" name="price" value="<%= product.price %>">
       </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </body>
