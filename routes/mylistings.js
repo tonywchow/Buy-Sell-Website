@@ -7,35 +7,38 @@ const db = require('../db/connection');
 //   res.render('mylistings');
 // });
 
-//Edit product
-router.post('/edit/:product_id', (req, res) => {
-  res.redirect('/edit');
-})
+// Edit product
+// router.post('/edit', (req, res) => {
+//   console.log(req.body);
+//   // res.redirect('/editform');
+// })
 
 //Delete product
-router.post('/delete/:product_id', (req, res) => {
-  const product_id = req.session.product_id;
-
+router.post('/:product_id/delete', (req, res) => {
+  const product_id = req.params.product_id;
+  console.log('#1 product_id: ', product_id);
+  console.log('#2 result: ', req.body);
   const qs = `DELETE FROM products WHERE products.id=${product_id}`;
 
   db.query(qs)
     .then((result) => {
-      // console.log('result is: ', result);
+      console.log('result is: ', result);
       // res.send('Product deleted!');
-      res.redirect('/');
+      res.redirect('/mylistings');
     })
     .catch((err) => {
-      // console.log('error: ', err.message);
+      console.log('error: ', err.message);
       res.send('Product cannot be deleted');
     })
 
 })
 
 //Mark item as sold
-router.post('/sold/:product_id', (req, res) => {
+router.post('/:product_id/sold', (req, res) => {
+  const product_id = req.params.product_id;
   const qs = `UPDATE products
               SET availability = false, title= 'SOLD!'
-              WHERE product.id = ${product_id};`
+              WHERE products.id = ${product_id};`
 
   db.query(qs)
     .then((result) => {
