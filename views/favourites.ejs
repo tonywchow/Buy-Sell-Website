@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <% include partials/header.ejs %>
-  <h1>FAVOURITES🥔</h1>
-</body>
+<% include partials/header.ejs %>
+  <!-- <div class="page-header">
+    <h1>Product Listings</h1>
+  </div> -->
+  <div class="favourites-list">
+    <h1>My Favourites</h1>
+    <% products.forEach(function(product) { %>
+      <div class="product">
+        <div class="thumbnail">
+          <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
+        </div>
+        <div class="details">
+          <h2 class="title">
+            <%= product.title %>
+          </h2>
+          <p class="description">
+            <%= product.description %>
+          </p>
+        </div>
+        <div class="right-block">
+          <p class="price">
+            <%= product.price %>
+          </p>
+          <div class="contact-favourite">
+            <a href="mailto:example@example.com">example@example.com</a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+  </div>
+  </body>
 
 </html>
