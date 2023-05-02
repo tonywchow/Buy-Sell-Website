@@ -9,13 +9,13 @@ const db = require("./db/connection");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-// const cookieSession = require("cookie-session");
-// app.use(
-//   cookieSession({
-//     name: "session",
-//     keys: ["key1"],
-//   })
-// );
+const cookieSession = require("cookie-session");
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
 app.set("view engine", "ejs");
 

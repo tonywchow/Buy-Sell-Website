@@ -1,18 +1,23 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
+const { getProductByUserId } = require('../db/queries/get-product-by-userID');
 
-router.get('/', (req, res) => {
-  const query = `SELECT * FROM products`;
-  db.query(query)
-    .then(data => {
-      const products = data.rows;
-      res.render('mylistings', { products });
+// Route to show products for a specific user
+router.get('/myproducts/:id', (req, res) => {
+  const userId = req.params.id;
+  const productQuery = getProductByUserId(userId);
+
+  db.query(productQuery)
+    .then((result) => {
+      const products = result.rows;
+      res.render('index', { products });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
-      res.status(500).send('Error retrieving products from database');
+      res.status(500).send('Something went wrong');
     });
 });
 
 module.exports = router;
+
