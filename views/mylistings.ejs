@@ -32,7 +32,17 @@
           <p class="description">
             <%= product.description %>
           </p>
-          <a href="mailto:example@example.com">example@example.com</a>
+          <div style="display: flex" class="my-buttons">
+            <form action="/editform/<%= product.id %>">
+              <input type="submit" value="Edit" />
+            </form>
+            <form method="POST" action="/mylistings/<%= product.id %>/delete">
+              <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+            <form method="POST" action="/mylistings/<%= product.id %>/sold">
+              <button type="submit" class="btn btn-primary">Sold</button>
+            </form>
+          </div>
         </div>
         <div class="right-block">
           <p class="price">
