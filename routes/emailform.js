@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const emailQuery = require("../db/queries/get-email-with-id");
-const databaseQueries = require("../db/queries/databaseQueries");
+const productQuery = require("../db/queries/get-product-with-id");
 const sgMail = require("@sendgrid/mail");
 
 router.get("/", (req, res) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   emailQuery
     .getEmailWithId(userID)
     .then((info) => {
-      databaseQueries
+      productQuery
         .getProductWithId(1) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
         .then((product) => {
           let templateVars = {

@@ -5,7 +5,6 @@ require("dotenv").config();
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
-const homepageRouter = require("./routes/homepage");
 const db = require("./db/connection");
 
 const PORT = process.env.PORT || 8080;
@@ -53,7 +52,6 @@ const email = require("./routes/emailform");
 const homepageRouter = require("./routes/homepage");
 const productFiltersRouter = require("./routes/productfilters");
 const myListingsRouter = require("./routes/mylistings");
-const login = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

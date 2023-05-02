@@ -5,9 +5,10 @@ Get product information from productID
 */
 const getProductWithId = function (id) {
   const queryString = `
-  SELECT *
+  SELECT products.*, name, email
   FROM products
-  WHERE id = $1`;
+  JOIN users on users.id = user_id
+  WHERE products.id = $1`;
   const values = [id];
 
   return db
