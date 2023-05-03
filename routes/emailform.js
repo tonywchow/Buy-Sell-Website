@@ -4,14 +4,14 @@ const emailQuery = require("../db/queries/get-email-with-id");
 const productQuery = require("../db/queries/get-product-with-id");
 const sgMail = require("@sendgrid/mail");
 
-router.get("/", (req, res) => {
-  console.log("the users id", req.session.user_id);
+router.get("/:id", (req, res) => {
+  let productID = req.params.id;
   let userID = req.session.user_id;
   emailQuery
     .getEmailWithId(userID)
     .then((info) => {
       productQuery
-        .getProductWithId(1) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
+        .getProductWithId(productID) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
         .then((product) => {
           let templateVars = {
             product,

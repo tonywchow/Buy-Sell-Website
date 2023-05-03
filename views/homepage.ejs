@@ -15,6 +15,17 @@
       <label>Price Range:</label>
       <input type="number" name="min-price" placeholder="Minimum price">
       <input type="number" name="max-price" placeholder="Maximum price">
+      <select id="category" name="category">
+        <option value="">Select a category</option>
+        <option value="Automotive">Automotive</option>
+        <option value="Bikes">Bikes</option>
+        <option value="Musical Instruments">Musical Instruments</option>
+        <option value="Audio">Audio</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Computers">Computers</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Clothing">Clothing</option>
+      </select>
       <button type="submit">Filter</button>
     </form>
   </div>
@@ -28,12 +39,11 @@
         <div class="details">
           <h2 class="title"><%= product.title %></h2>
           <p class="description"><%= product.description %></p>
-          <a href="mailto:example@example.com">example@example.com</a>
         </div>
         <div class="right-block">
           <p class="price"><%= product.price %></p>
           <div class="contact-favourite">
-            <a href="mailto:example@example.com">example@example.com</a>
+            <a href="/email/<%=product.id%>"><%= product.email %></a>
             <button class="favorite">Add to favorites</button>
           </div>
         </div>
