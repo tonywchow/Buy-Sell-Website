@@ -6,7 +6,6 @@ const deleteProduct = require("../db/queries/delete-product");
 //Delete product
 router.post("/:product_id/delete", (req, res) => {
   const product_id = req.params.product_id;
-
   deleteProduct.deleteProductById(product_id)
     .then((result) => {
       console.log("result is: ", result);
