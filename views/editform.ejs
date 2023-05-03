@@ -1,49 +1,23 @@
 
     <% include partials/header.ejs %>
-    <h1>Edit Post 🥔</h1>
-    <section class="input-form">
-      <form action="/edit" method="POST">
-        <div class="form-group">
-          <div class="elements">
-              <label class="label" for="title">Title: </label>
-              <input
-                class="form-control"
-                type="text"
-                name="title"
-                value="<%= product.title %>"
-              />
-          </div>
-          <div class="elements">
-              <label class="label" for="description">Description: </label>
-              <textarea
-              class="text-space"
-              type="text"
-              name="description"
-              ><%= product.description %></textarea>
-          </div>
-          <div class="elements">
-              <label class="label" for="thumbnail_photo_url">Thumbnail Photo URL: </label>
-            <input
-                class="form-control"
-                type="text"
-                name="thumbnail_photo_url"
-                value="<%= product.thumbnail_photo_url %>"
-              />
-          </div>
-          <div class="elements">
-              <label class="label" for="price">Price: </label>
-              <input
-                class="form-control"
-                type="text"
-                name="price"
-                value="<%= product.price %>"
-              />
-          </div>
-        </div>
-        <div class="button">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </section>
+    <h1>Edit Post</h1>
+    <form method="POST" action="/editform/<%= product.id %>/edit ">
+      <div class="form-group">
+
+        <label for="title">Title: </label>
+        <input autocomplete='off' class='form-control' type="text" name="title" value="<%= product.title %>">
+
+        <label for="description">Description: </label>
+        <input autocomplete='off' class='form-control' type="text" name="description" value="<%= product.description %>">
+
+        <label for="photoURL">Thumbnail Photo URL: </label>
+        <input autocomplete='off' class='form-control' type="url" name="photoURL" value="<%= product.URL %>">
+
+        <label for="price">Price: </label>
+        <input autocomplete='off' class='form-control' type="text" name="price" value="<%= product.price %>">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </body>
 </html>

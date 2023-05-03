@@ -2,32 +2,48 @@
  * All routes to edit a new post are defined here
  * Since this file is loaded in server.js into /edit,
  *   these routes are mounted onto /edit
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
 const express = require("express");
 const router = express.Router();
-const productQuery = require("../db/queries/get-product-with-id");
-const editQuery = require("../db/queries/edit-product");
+const db = require('../db/connection');
 
-//This GET HTTP request is to get product information from productID once the edit button is clicked in /mylistings route. This will auto populate the forms in the EJS file
-router.get("/", (req, res) => {
-  productQuery
-    .getProductWithId(1) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
-    .then((product) => {
-      console.log(product.price);
-      res.render("editform", { product });
+
+router.get("/:product_id", (req, res) => {
+  const id = req.params.product_id;
+  console.log(id);
+  const query = `SELECT * FROM products WHERE products.id=${id}`;
+  db.query(query)
+    .then(data => {
+      const product = data.rows[0];
+      console.log(product);
+      res.render('editform', { product });
     })
-    .catch((error) => res.send(error));
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Error retrieving products from database');
+    });
 });
 
-//This POST HTTP request is to POST the edited product information once the submit button is clicked
-router.post("/", (req, res) => {
-  const changesToProduct = req.body;
-  editQuery
-    .editProduct(1, changesToProduct) //currently the productID is hardcoded in the method for testing. Medhanie to integrate. editProduct function takes in two parameters, the productID and the information from the forms through req.body
-    .then(res.redirect("/edit"))
-    .catch((error) => res.send(error));
-});
+router.post("/:product_id/edit", (req, res) => {
+  // console.log("#1 result", req.body);
+  // console.log("#2 title", req.body.title);
+  // console.log("#3 query", req.query);
+  const id = req.params.product_id;
+  // console.log("#4 id ", id);
+  const title = req.body.title;
+  const description = req.body.description;
+  const thumbnail_photo_url = req.body.photoURL;
+  const price = req.body.price;
+  const query = `UPDATE products SET title = '${title}', description = '${description}', thumbnail_photo_url = '${thumbnail_photo_url}', price = ${price} WHERE products.id=${id}`;
+  console.log("query: ", query);
+  db.query(query)
+    .then(() => {
+      res.status(201).send({ message: 'product updated successfully!'});
+    })
+    .catch((error) => {
+      res.status(500).send({ message: 'Error on the server side :(', error })
+    })
 
+});
 module.exports = router;

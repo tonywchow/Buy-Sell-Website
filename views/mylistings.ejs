@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% include partials/header.ejs %>
-  <!-- <div class="page-header">
-    <h1>Product Listings</h1>
-  </div> -->
+<% include partials/header.ejs %>
   <div class="filter-container">
     <form class="filter-options" method="get" action="/filters">
       <label>Sort by:</label>
@@ -26,20 +23,36 @@
           <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
         </div>
         <div class="details">
-          <h2 class="title"><%= product.title %></h2>
-          <p class="description"><%= product.description %></p>
-          <a href="mailto:example@example.com">example@example.com</a>
+          <h2 class="title">
+            <%= product.title %>
+          </h2>
+          <p class="description">
+            <%= product.description %>
+          </p>
+          <div style="display: flex" class="my-buttons">
+            <form action="/editform/<%= product.id %>">
+              <input type="submit" value="Edit" />
+            </form>
+            <form method="POST" action="/mylistings/<%= product.id %>/delete">
+              <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+            <form method="POST" action="/mylistings/<%= product.id %>/sold">
+              <button type="submit" class="btn btn-primary">Sold</button>
+            </form>
+          </div>
         </div>
         <div class="right-block">
-          <p class="price"><%= product.price %></p>
+          <p class="price">
+            <%= product.price %>
+          </p>
           <div class="contact-favourite">
             <a href="mailto:example@example.com">example@example.com</a>
             <button class="favorite">Add to favorites</button>
           </div>
         </div>
       </div>
-    <% }); %>
+      <% }); %>
   </div>
-</body>
-</html>
+  </body>
 
+</html>
