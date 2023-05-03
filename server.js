@@ -9,13 +9,19 @@ const db = require("./db/connection");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-// const cookieSession = require("cookie-session");
-// app.use(
-//   cookieSession({
-//     name: "session",
-//     keys: ["key1"],
-//   })
-// );
+const cookieSession = require("cookie-session");
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
+
+//SendGrid API
+const API_KEY = process.env.APIKEY;
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey(API_KEY);
 
 app.set("view engine", "ejs");
 
@@ -40,8 +46,9 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const createPost = require("./routes/createform");
-const databaseRoutes = require("./routes/databaseRoutes");
 const editPost = require("./routes/editform");
+const login = require("./routes/login");
+const email = require("./routes/emailform");
 const homepageRouter = require("./routes/homepage");
 const productFiltersRouter = require('./routes/productfilters');
 const myListingsRouter = require("./routes/mylistings");
@@ -56,6 +63,8 @@ app.use("/users", usersRoutes);
 app.use("/create", createPost);
 app.use("/editform", editPost);
 app.use("/", homepageRouter);
+app.use("/login", login);
+app.use("/email", email);
 app.use("/filters", productFiltersRouter);
 app.use("/mylistings", myListingsRouter);
 app.use("/favourites", favouritesRouter);
@@ -67,28 +76,6 @@ app.use("/favourites", favouritesRouter);
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("homepage");
-});
-
-//Login
-app.get("/login/:id", (req, res) => {
-  // using encrypted cookies
-  req.session.user_id = req.params.id;
-
-  // or using plain-text cookies
-  res.cookie("user_id", req.params.id);
-
-  // send the user somewhere
-  res.redirect("/");
-});
-
-// My Listings
-app.get("/mylistings", (req, res) => {
-  res.render("mylistings");
-});
-
-// My Listings
-app.get("/mylistings", (req, res) => {
-  res.render("mylistings");
 });
 
 // Favourites

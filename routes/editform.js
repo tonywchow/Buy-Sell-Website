@@ -1,8 +1,7 @@
 /*
- * All routes to create a new post are defined here
- * Since this file is loaded in server.js into /create,
- *   these routes are mounted onto /create
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ * All routes to edit a new post are defined here
+ * Since this file is loaded in server.js into /edit,
+ *   these routes are mounted onto /edit
  */
 
 const express = require("express");
