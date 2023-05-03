@@ -40,7 +40,7 @@ router.post("/:product_id/edit", (req, res) => {
   db.query(query)
     .then(() => {
       res.status(201).send({ message: 'product updated successfully!'});
-    })
+    })//pass template vars with product list and a message
     .catch((error) => {
       res.status(500).send({ message: 'Error on the server side :(', error })
     })
