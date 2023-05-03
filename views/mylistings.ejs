@@ -33,7 +33,7 @@
             <form action="/editform/<%= product.id %>">
               <input type="submit" value="Edit" />
             </form>
-            <form method="POST" action="/mylistings/<%= product.id %>/delete">
+            <form method="POST" action="/delete/<%= product.id %>/delete">
               <button type="submit" class="btn btn-primary">Delete</button>
             </form>
             <form method="POST" action="/mylistings/<%= product.id %>/sold">
