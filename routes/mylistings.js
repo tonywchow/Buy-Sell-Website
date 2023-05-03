@@ -22,23 +22,23 @@ router.post("/:product_id/delete", (req, res) => {
     });
 });
 
-//Mark item as sold
-router.post("/:product_id/sold", (req, res) => {
-  const product_id = req.params.product_id;
-  const qs = `UPDATE products
-              SET availability = false, title= 'SOLD!'
-              WHERE products.id = ${product_id};`;
+// //Mark item as sold
+// router.post("/:product_id/sold", (req, res) => {
+//   const product_id = req.params.product_id;
+//   const qs = `UPDATE products
+//               SET availability = false, title= 'SOLD!'
+//               WHERE products.id = ${product_id};`;
 
-  db.query(qs)
-    .then((result) => {
-      console.log("result: ", result);
-      res.redirect("/mylistings");
-    })
-    .catch((err) => {
-      console.log("error: ", err);
-      res.send("Product does not exist!");
-    });
-});
+//   db.query(qs)
+//     .then((result) => {
+//       console.log("result: ", result);
+//       res.redirect("/mylistings");
+//     })
+//     .catch((err) => {
+//       console.log("error: ", err);
+//       res.send("Product does not exist!");
+//     });
+// });
 
 // Route to show products for a specific user
 router.get("/", (req, res) => {
