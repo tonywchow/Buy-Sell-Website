@@ -1,15 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
+const markAsSold = require("../db/queries/mark-as-sold");
 
 //Mark item as sold
 router.post("/:product_id/sold", (req, res) => {
   const product_id = req.params.product_id;
-  const qs = `UPDATE products
-              SET availability = false, title= 'SOLD!'
-              WHERE products.id = ${product_id};`;
 
-  db.query(qs)
+  markAsSold.soldProduct(product_id)
     .then((result) => {
       console.log("result: ", result);
       res.redirect("/mylistings");
