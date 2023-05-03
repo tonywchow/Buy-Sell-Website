@@ -12,10 +12,12 @@ const db = require('../db/connection');
 
 router.get("/:product_id", (req, res) => {
   const id = req.params.product_id;
+  console.log(id);
   const query = `SELECT * FROM products WHERE products.id=${id}`;
   db.query(query)
     .then(data => {
       const product = data.rows[0];
+      console.log(product);
       res.render('editform', { product });
     })
     .catch(err => {
