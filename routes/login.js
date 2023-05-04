@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const userQuery = require("../db/queries/get-user-with-id");
+const userQuery = require("../db/queries/get-user-with-cookieid");
 
 router.get("/:id", (req, res) => {
   // using encrypted cookies
   userID = req.params.id;
   //checks whether the user ID exist within the database
   userQuery
-    .getUserWithId(userID)
+    .getUserWithCookieId(userID)
     .then((user) => {
       console.log("test", user);
       if (!user) {
