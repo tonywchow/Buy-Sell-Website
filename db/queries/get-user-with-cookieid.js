@@ -2,7 +2,7 @@ const db = require("../connection");
 
 //Get user with cookie session id
 
-const getUserWithId = function (id) {
+const getUserWithCookieId = function (id) {
   const queryString = `
   SELECT *
   FROM users
