@@ -4,6 +4,28 @@
   <!-- <div class="page-header">
     <h1>Product Listings</h1>
   </div> -->
+
+    <div class="product-list">
+      <h1>Product Listings</h1>
+      <% products.forEach(function(product) { %>
+        <div class="product">
+          <div class="thumbnail">
+            <img src="<%= product.thumbnail_photo_url %>" alt="<%= product.title %> thumbnail">
+          </div>
+          <div class="details">
+            <h2 class="title"><%= product.title %></h2>
+            <p class="description"><%= product.description %></p>
+            <p class="price"><%= product.price %></p>
+            <div class="contact-favourite">
+              <a href="/email/<%=product.id%>"><%= product.email %></a>
+              <button class="favorite">Add to favorites</button>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+
+  </body>
   <div class="filter-container">
     <form class="filter-options" method="get" action="/filters">
       <label>Sort by:</label>
@@ -29,27 +51,5 @@
       <button type="submit">Filter</button>
     </form>
   </div>
-  <div class="product-list">
-    <h1>Product Listings</h1>
-    <% products.forEach(function(product) { %>
-      <div class="product">
-        <div class="thumbnail">
-          <img src="<%= product.thumbnail_photo_url %>" alt="<%= product.title %> thumbnail">
-        </div>
-        <div class="details">
-          <h2 class="title"><%= product.title %></h2>
-          <p class="description"><%= product.description %></p>
-        </div>
-        <div class="right-block">
-          <p class="price"><%= product.price %></p>
-          <div class="contact-favourite">
-            <a href="/email/<%=product.id%>"><%= product.email %></a>
-            <button class="favorite">Add to favorites</button>
-          </div>
-        </div>
-      </div>
-    <% }); %>
-  </div>
-</body>
 </html>
 

@@ -1,9 +1,9 @@
 @import "inputForm", "scrollToTop", "header";
 body {
   display: flex;
-  flex-direction: row;
-  // justify-content: space-between;
-  align-items: flex start;
+  // flex-direction: column;
+  justify-content: center;
+  // align-items: flex start;
   min-height: 100vh;
   background-color: #A2D6F9;
   // background: rgb(163, 208, 219);
