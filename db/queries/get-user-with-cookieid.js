@@ -22,5 +22,5 @@ const getUserWithCookieId = function (id) {
 };
 
 module.exports = {
-  getUserWithId,
+  getUserWithCookieId,
 };
