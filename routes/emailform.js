@@ -8,7 +8,7 @@ router.get("/:id", (req, res) => {
   let productID = req.params.id;
   let userID = req.session.user_id;
   emailQuery
-    .getEmailWithId(userID)
+    .getEmailWithUserId(userID)
     .then((info) => {
       productQuery
         .getProductAndUserWithProductId(productID) //currently the productID is hardcoded in the method for testing. Medhanie to integrate

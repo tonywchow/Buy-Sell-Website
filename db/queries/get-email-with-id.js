@@ -3,7 +3,7 @@ const db = require("../connection");
 /*
 Get user email from user id
 */
-const getEmailWithId = function (id) {
+const getEmailWithUserId = function (id) {
   const queryString = `
   SELECT * FROM users
   WHERE id = $1
@@ -24,5 +24,5 @@ const getEmailWithId = function (id) {
 };
 
 module.exports = {
-  getEmailWithId,
+  getEmailWithUserId,
 };
