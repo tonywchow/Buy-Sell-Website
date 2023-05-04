@@ -28,10 +28,15 @@ form {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 10px solid #ccc;
   padding: 10px;
+  height: 200px;
+}
+
+img {
+  max-height: 150px;
 }
 
 .thumbnail {
