@@ -6,22 +6,21 @@
 
 const express = require("express");
 const router = express.Router();
-const db = require('../db/connection');
-
+const db = require("../db/connection");
 
 router.get("/:product_id", (req, res) => {
   const id = req.params.product_id;
   console.log(id);
   const query = `SELECT * FROM products WHERE products.id=${id}`;
   db.query(query)
-    .then(data => {
+    .then((data) => {
       const product = data.rows[0];
       console.log(product);
-      res.render('editform', { product });
+      res.render("editform", { product });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
-      res.status(500).send('Error retrieving products from database');
+      res.status(500).send("Error retrieving products from database");
     });
 });
 
@@ -39,11 +38,13 @@ router.post("/:product_id/edit", (req, res) => {
   console.log("query: ", query);
   db.query(query)
     .then(() => {
-      res.status(201).send({ message: 'product updated successfully!'});
-    })//pass template vars with product list and a message
+      res
+        // .status(201)
+        // .send({ message: "product updated successfully!" })
+        .redirect("/mylistings");
+    }) //pass template vars with product list and a message
     .catch((error) => {
-      res.status(500).send({ message: 'Error on the server side :(', error })
-    })
-
+      res.status(500).send({ message: "Error on the server side :(", error });
+    });
 });
 module.exports = router;
