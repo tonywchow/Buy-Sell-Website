@@ -55,6 +55,7 @@ const myListingsRouter = require("./routes/mylistings");
 const favouritesRouter = require("./routes/favourites");
 const deleteProductRouter = require("./routes/deleteProduct");
 const soldRouter = require("./routes/sold");
+const addDeleteFavourites = require("./routes/add-delete-favourites");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -71,6 +72,7 @@ app.use("/mylistings", myListingsRouter);
 app.use("/favourites", favouritesRouter);
 app.use("/delete", deleteProductRouter);
 app.use("/sold", soldRouter);
+app.use("/add-delete-favourites", addDeleteFavourites);
 
 // Note: mount other resources here, using the same pattern above
 
