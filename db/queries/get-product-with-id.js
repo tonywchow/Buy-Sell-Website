@@ -1,9 +1,10 @@
 const db = require("../connection");
 
 /*
-Get product information from productID
+Get product and user information from productID
+getProductWithId
 */
-const getProductWithId = function (id) {
+const getProductAndUserWithProductId = function (id) {
   const queryString = `
   SELECT products.*, name, email
   FROM products
@@ -25,5 +26,5 @@ const getProductWithId = function (id) {
 };
 
 module.exports = {
-  getProductWithId,
+  getProductAndUserWithProductId,
 };

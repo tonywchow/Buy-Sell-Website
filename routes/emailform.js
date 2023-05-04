@@ -11,7 +11,7 @@ router.get("/:id", (req, res) => {
     .getEmailWithId(userID)
     .then((info) => {
       productQuery
-        .getProductWithId(productID) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
+        .getProductAndUserWithProductId(productID) //currently the productID is hardcoded in the method for testing. Medhanie to integrate
         .then((product) => {
           let templateVars = {
             product,
