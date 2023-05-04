@@ -44,8 +44,8 @@
           <p class="price"><%= product.price %></p>
           <div class="contact-favourite">
             <a href="/email/<%=product.id%>"><%= product.email %></a>
-            <% if (product.favorite_id) { %>
-              <button class="favourite already-favourited" data-product-id="<%= product.id %>">
+            <% if (product.favourite_id !== 0) { %>
+              <button class="favourite" data-product-id="<%= product.id %>">
                 <i class="fas fa-heart"></i> Favourited
               </button>
             <% } else { %>
@@ -53,6 +53,7 @@
                 <i class="far fa-heart"></i>
               </button>
             <% } %>
+
           </div>
         </div>
       </div>
