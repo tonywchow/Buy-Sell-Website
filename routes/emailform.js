@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const emailQuery = require("../db/queries/get-email-with-id");
+const emailQuery = require("../db/queries/get-email-with-userid");
 const productQuery = require("../db/queries/get-product-and-user-with-productid");
 const sgMail = require("@sendgrid/mail");
 
