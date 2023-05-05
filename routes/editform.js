@@ -8,9 +8,10 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
 
+//get product with product_id
 router.get("/:product_id", (req, res) => {
   const id = req.params.product_id;
-  console.log(id);
+  //Select product and render editform
   const query = `SELECT * FROM products WHERE products.id=${id}`;
   db.query(query)
     .then((data) => {
@@ -25,18 +26,16 @@ router.get("/:product_id", (req, res) => {
 });
 
 router.post("/:product_id/edit", (req, res) => {
-  // console.log("#1 result", req.body);
-  // console.log("#2 title", req.body.title);
-  // console.log("#3 query", req.query);
+  //retrieve all the product data from req.params and req.body
   const id = req.params.product_id;
-  // console.log("#4 id ", id);
   const title = req.body.title;
   const description = req.body.description;
   const thumbnail_photo_url = req.body.thumbnail_photo_url;
-  console.log('test', req.body)
   const price = req.body.price;
+
+  //Update prodcut based on the data obtained from the post request
   const query = `UPDATE products SET title = '${title}', description = '${description}', thumbnail_photo_url = '${thumbnail_photo_url}', price = ${price} WHERE products.id=${id}`;
-  console.log("query: ", query);
+  
   db.query(query)
     .then(() => {
       res
