@@ -104,7 +104,7 @@ Larry's List is the modern-day answer to the popular classified ads website, Cra
   - username: `labber` 
   - password: `labber` 
   - database: `midterm`
-  - API_KEY: `APIKEY`
+  - APIKEY: `API_KEY`
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Reset database: `npm run db:reset`
