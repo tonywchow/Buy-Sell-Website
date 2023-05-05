@@ -13,9 +13,11 @@
             <img src="<%= product.thumbnail_photo_url %>" alt="<%= product.title %> thumbnail">
           </div>
           <div class="details">
-            <h2 class="title"><%= product.title %></h2>
-            <p class="description"><%= product.description %></p>
-            <p class="price"><%= product.price %></p>
+            <div class="title"><%= product.title %></div>
+            <div class="description"><%= product.description %></div>
+          </div>
+          <div class="right-block">
+            <div class="price"><%= product.price %></div>
             <div class="contact-favourite">
               <a href="/email/<%=product.id%>"><%= product.email %></a>
               <button class="favorite">Add to favorites</button>

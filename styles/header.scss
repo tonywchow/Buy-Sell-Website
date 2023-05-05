@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 150px;
   background-color: #072AC8;
   color: aliceblue;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -32,4 +32,8 @@
   color: #FCF300;
   padding-right: 10px;
   font-size: 1.5em;
+}
+
+body {
+  padding-top: 150px;
 }
