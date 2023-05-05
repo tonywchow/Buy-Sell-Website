@@ -6,7 +6,7 @@ function getProductByUserId(userId) {
   FROM products
   JOIN users on users.id = user_id
   WHERE user_id = ${userId}
-  ORDER BY created_at DESC;
+  ORDER BY timestamp DESC;
   `;
 }
 
