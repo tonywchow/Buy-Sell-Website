@@ -38,27 +38,27 @@
         <form class="filter-options" method="get" action="/filters">
           <label>Sort by:</label>
           <select name="sort">
-            <option value="no-sort"></option>
-            <option value="low-to-high">Price: Low to High</option>
-            <option value="high-to-low">Price: High to Low</option>
+            <option value="no-sort" <%= !queryParams.sort ? 'selected' : '' %>>-- Select --</option>
+            <option value="low-to-high" <%= queryParams.sort === 'low-to-high' ? 'selected' : '' %>>Price: Low to High</option>
+            <option value="high-to-low" <%= queryParams.sort === 'high-to-low' ? 'selected' : '' %>>Price: High to Low</option>
           </select>
           <label>Price Range:</label>
-          <input type="number" name="min-price" placeholder="Minimum price">
-          <input type="number" name="max-price" placeholder="Maximum price">
+          <input type="number" name="min-price" placeholder="Minimum price" value="<%= queryParams['min-price'] || '' %>">
+          <input type="number" name="max-price" placeholder="Maximum price" value="<%= queryParams['max-price'] || '' %>">
           <select id="category" name="category">
-            <option value="">Select a category</option>
-            <option value="Automotive">Automotive</option>
-            <option value="Bikes">Bikes</option>
-            <option value="Musical Instruments">Musical Instruments</option>
-            <option value="Audio">Audio</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Computers">Computers</option>
-            <option value="Gaming">Gaming</option>
-            <option value="Clothing">Clothing</option>
+            <option value="" <%= !queryParams.category ? 'selected' : '' %>>-- Select a category --</option>
+            <option value="Automotive" <%= queryParams.category === 'Automotive' ? 'selected' : '' %>>Automotive</option>
+            <option value="Bikes" <%= queryParams.category === 'Bikes' ? 'selected' : '' %>>Bikes</option>
+            <option value="Musical Instruments" <%= queryParams.category === 'Musical Instruments' ? 'selected' : '' %>>Musical Instruments</option>
+            <option value="Audio" <%= queryParams.category === 'Audio' ? 'selected' : '' %>>Audio</option>
+            <option value="Electronics" <%= queryParams.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+            <option value="Computers" <%= queryParams.category === 'Computers' ? 'selected' : '' %>>Computers</option>
+            <option value="Gaming" <%= queryParams.category === 'Gaming' ? 'selected' : '' %>>Gaming</option>
+            <option value="Clothing" <%= queryParams.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
           </select>
           <button type="submit">Filter</button>
         </form>
-    </body>
-  </div>
+      </div>
+
 </html>
 
