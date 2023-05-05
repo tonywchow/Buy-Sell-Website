@@ -5,7 +5,8 @@ function getProductByUserId(userId) {
   SELECT products.*, users.id as user_id, name, email
   FROM products
   JOIN users on users.id = user_id
-  WHERE user_id = ${userId};
+  WHERE user_id = ${userId}
+  ORDER BY created_at DESC;
   `;
 }
 
