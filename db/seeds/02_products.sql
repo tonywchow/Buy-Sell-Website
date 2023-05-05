@@ -27,24 +27,4 @@ INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) V
 
 INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (3, 'Not Black Panther Lexus FT', 'Cant afford the real Black Panther Lexus NFT? I will sell you a USB with a copy of the NFT image stored inside. ', 'https://preview.redd.it/7b00qe029g191.jpg?width=640&crop=smart&auto=webp&v=enabled&s=e3b831759a9faac96aa66f9fbb1496f8354d92f2', 350.00);
 
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'typewriter', 'Antique typewriter in excellent condition', 'https://i.redd.it/1awu559v7rba1.jpg', 250.00);
 
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'radio', 'Working Northern Electric 5110 am antique radio', 'https://i.redd.it/restored-northern-electric-baby-champ-rainbow-5110-in-green-v0-1ne2dh4wf63a1.jpg?s=113c5ffaf0e716968c24b799c4c4fcb23ffbfc0f', 265.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Saucer and cup', 'Antique China', 'https://i.redd.it/1vviccriysa71.jpg', 125.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Dental phantom', 'Dental practice head from the 1950s', 'https://i.redd.it/fiadlvz76cxa1.jpg', 340.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Celebration kid', 'Turn of the century celebration kit form Dr. Pepper', 'https://i.redd.it/60evn7gt85oa1.jpg', 449.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Antique Wahaika', 'Non-dated antique Wahaika', 'https://i.redd.it/lb1wc3fhnmwa1.jpg', 450.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Antique bed lamp', 'Beautiful antique bed lamp for a price', 'https://i.redd.it/juka4skni2xa1.jpg', 799.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Antique turntable', 'Listen to music with a working antique turntable', 'https://i.redd.it/nscr421yzcva1.jpg', 250.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Baby stroller', 'Raise your baby the old way with an antique baby stroller', 'https://i.redd.it/vjg75w5itwwa1.jpg', 199.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'Music system', 'Antique stacksytem for your living room', 'https://i.redd.it/a8fw762xb1xa1.jpg', 99.00);
-
-INSERT INTO products (user_id, title, description, thumbnail_photo_url, price) VALUES (1, 'toys', 'Made by the antique dinosaurs', 'https://i.imgur.com/pzrffRa.jpg', 125.00);
