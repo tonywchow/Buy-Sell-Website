@@ -16,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .form-control {
@@ -41,4 +41,9 @@
 .button {
   display: flex;
   justify-content: center;
+}
+
+#category {
+  font-family: "Fredoka", cursive, sans-serif;
+  font-weight: 300;
 }
