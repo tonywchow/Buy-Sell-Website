@@ -48,6 +48,7 @@
           <select id="category" name="category">
             <option value="" <%= !queryParams.category ? 'selected' : '' %>>-- Select a category --</option>
             <option value="Automotive" <%= queryParams.category === 'Automotive' ? 'selected' : '' %>>Automotive</option>
+            <option value="Antiques" <%= queryParams.category === 'Antiques' ? 'selected' : '' %>>Antiques</option>
             <option value="Bikes" <%= queryParams.category === 'Bikes' ? 'selected' : '' %>>Bikes</option>
             <option value="Musical Instruments" <%= queryParams.category === 'Musical Instruments' ? 'selected' : '' %>>Musical Instruments</option>
             <option value="Audio" <%= queryParams.category === 'Audio' ? 'selected' : '' %>>Audio</option>
