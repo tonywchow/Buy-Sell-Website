@@ -12,7 +12,6 @@ form {
   flex-direction: column;
 }
 
-
 .product-list {
   display: flex;
   flex-direction: column;
@@ -25,7 +24,7 @@ form {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-  border: 5px solid #FFC600;
+  border: 5px solid #ffc600;
   padding: 10px;
   height: auto;
   min-height: 100px;
@@ -35,8 +34,7 @@ form {
 }
 
 .product:hover {
-
-  box-shadow: 4px 4px #072AC8;
+  box-shadow: 4px 4px #072ac8;
 }
 
 img {
@@ -53,21 +51,20 @@ img {
 .details {
   display: flex;
   flex-direction: column;
-  border: 1px solid #FFC600;
-
+  border: 1px solid #ffc600;
 }
 
 .details .title {
   font-family: "Fredoka", cursive, sans-serif;
   font: 500;
   font-size: 25px;
-  border: 1px solid #FFC600;
-
+  border: 1px solid #ffc600;
 }
 
 .description {
   font-family: "Fredoka", cursive, sans-serif;
-  border: 1px solid #FFC600;
+  font: 100;
+  border: 1px solid #ffc600;
   height: 100%;
 }
 
@@ -83,20 +80,17 @@ img {
   font-weight: bold;
   margin-left: auto;
   font-family: "Fredoka", cursive, sans-serif;
-  border: 1px solid #FFC600;
-
+  border: 1px solid #ffc600;
 }
 
 .email {
   margin-top: auto;
   font-size: 14px;
-  border: 1px solid #FFC600;
-
+  border: 1px solid #ffc600;
 }
 
 .favourite {
   margin-left: auto;
   font-size: 14px;
-  border: 1px solid #FFC600;
-
+  border: 1px solid #ffc600;
 }
