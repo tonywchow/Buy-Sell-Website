@@ -10,33 +10,27 @@ Larry's List is the modern-day answer to the popular classified ads website, Cra
 
 ### Homepage
 
-!["Screenshot of Homepage"](./docs/LightBnB%20Homepage.png)
+!["Screenshot of Homepage"](./docs/)
 
 ### Create Listing Page
 
-!["Screenshot of Homepage"](./docs/LightBnB%20Login%20Page.png)
+!["Screenshot of Create Listing Page"](./docs/)
 
 ### My Listings Page
 
-!["Screenshot of Homepage"](./docs/LightBnB%20Sign%20Up.png)
+!["Screenshot of My Listings Page"](./docs/)
 
 ### Favourites
 
-!["Screenshot of Homepage"](./docs/LightBnB%20Logged%20In.png)
+!["Screenshot of Favourites"](./docs/)
 
 ### Contact User Page
 
+!["Screenshot of Contact User Page"](./docs/)
+
 #### Edit Post Page
 
-!["Screenshot of Homepage"](./docs/LightBnB%20Search.png)
-
-### Create Listing Page
-
-!["Screenshot of Homepage"](./docs/LightBnB%20Create%20Listings.png)
-
-### My Listings Page
-
-!["Screenshot of Homepage"](./docs/LightBnB%20Listings.png)
+!["Screenshot of Edit Post Page"](./docs/)
 
 ## Project Structure
 
