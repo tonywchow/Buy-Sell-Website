@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <% include partials/header.ejs %>
-  <div class="favourites-list">
+  <div class="product-list">
     <h1>My Favourites</h1>
     <% products.forEach(function(product) { %>
       <div class="product">
         <div class="thumbnail">
-          <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
+          <img src="<%= product.thumbnail_photo_url %>" alt="<%= product.title %> thumbnail">
         </div>
         <div class="details">
-          <h2 class="title">
-            <%= product.title %>
-          </h2>
-          <p class="description">
-            <%= product.description %>
-          </p>
+          <div class="title"><%= product.title %></div>
+          <div class="description"><%= product.description %></div>
         </div>
         <div class="right-block">
-          <p class="price">
-            <%= product.price %>
-          </p>
+          <div class="price"><%= product.price %></div>
           <div class="contact-favourite">
-            <a href="mailto:example@example.com">example@example.com</a>
+            <a href="/email/<%=product.id%>"><%= product.email %></a>
           </div>
         </div>
       </div>
