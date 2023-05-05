@@ -1,50 +1,56 @@
 
     <% include partials/header.ejs %>
-    <h1>Create Post 🥔</h1>
-    <section class="input-form">
-      <form action="/create" method="POST">
-        <div class="form-group">
-          <div class="elements">
-              <label class="label" for="title">Title: </label>
-              <input
-                class="form-control"
+    <div class="form-container">
+      <div>
+        <h1>Create Post 🥔</h1>
+      </div>
+      <section class="input-form">
+        <form action="/create" method="POST">
+          <div class="form-group">
+            <div class="elements">
+                <label class="label" for="title">Title: </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                />
+            </div>
+            <div class="elements">
+                <label class="label" for="description">Description: </label>
+                <textarea
+                class="text-space"
                 type="text"
-                name="title"
-                placeholder="Title"
-              />
-          </div>
-          <div class="elements">
-              <label class="label" for="description">Description: </label>
-              <textarea
-              class="text-space"
-              type="text"
-              name="description"
-              placeholder="Description"
-              ></textarea>
-          </div>
-          <div class="elements">
-              <label class="label" for="thumbnail_photo_url">Thumbnail Photo URL: </label>
-            <input
-                class="form-control"
-                type="text"
-                name="thumbnail_photo_url"
-                placeholder="Photo URL"
-              />
-          </div>
-          <div class="elements">
-              <label class="label" for="price">Price: </label>
+                name="description"
+                placeholder="Description"
+                ></textarea>
+            </div>
+            <div class="elements">
+                <label class="label" for="thumbnail_photo_url">Thumbnail Photo URL: </label>
               <input
-                class="form-control"
-                type="number"
-                name="price"
-                placeholder="$"
-              />
+                  class="form-control"
+                  type="text"
+                  name="thumbnail_photo_url"
+                  placeholder="Photo URL"
+                />
+            </div>
+            <div class="elements">
+                <label class="label" for="price">Price: </label>
+                <input
+                  class="form-control"
+                  type="number"
+                  name="price"
+                  placeholder="$"
+                />
+            </div>
           </div>
-        </div>
-        <div class="button">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </section>
+          <div class="button">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    </div>
+    <div>
   </body>
 </html>

@@ -1,58 +1,62 @@
 
 <% include partials/header.ejs %>
-<h1>Email 🥔</h1>
-<section class="input-form">
-  <form action="/email" method="POST">
-    <div class="form-group">
-      <div class="elements">
-          <label class="label" for="recipient">To: </label>
+<div class="form-container">
+  <div>
+    <h1>Email 🥔</h1>
+  </div>
+  <section class="input-form">
+    <form action="/email" method="POST">
+      <div class="form-group">
+        <div class="elements">
+            <label class="label" for="recipient">To: </label>
+            <input
+              class="form-control"
+              type="text"
+              name="recipient"
+              value="<%= product.email %>"
+            />
+        </div>
+        <div class="elements">
+          <label class="label" for="sender">From: </label>
           <input
             class="form-control"
             type="text"
-            name="recipient"
-            value="<%= product.email %>"
+            name="sender"
+            value="<%= info.email %>"
           />
+        </div>
+        <div class="elements">
+          <label class="label" for="subject">Subject: </label>
+          <input
+            class="form-control"
+            type="text"
+            name="subject"
+            value="<%= product.title %>"
+          />
+        </div>
+        <div class="elements">
+            <label class="label" for="message">Message: </label>
+            <textarea
+            class="text-space"
+            type="text"
+            name="message"
+            placeholder="Message"
+            >Dear <%=product.name %>,
+
+
+
+
+
+
+  Regards,
+  <%=info.name%></textarea>
+        </div>
       </div>
-      <div class="elements">
-        <label class="label" for="sender">From: </label>
-        <input
-          class="form-control"
-          type="text"
-          name="sender"
-          value="<%= info.email %>"
-        />
+      <div class="button">
+        <button type="submit">Send</button>
       </div>
-      <div class="elements">
-        <label class="label" for="subject">Subject: </label>
-        <input
-          class="form-control"
-          type="text"
-          name="subject"
-          value="<%= product.title %>"
-        />
-      </div>
-      <div class="elements">
-          <label class="label" for="message">Message: </label>
-          <textarea
-          class="text-space"
-          type="text"
-          name="message"
-          placeholder="Message"
-          >Dear <%=product.name %>,
-
-
-
-
-
-
-Regards,
-<%=info.name%></textarea>
-      </div>
-    </div>
-    <div class="button">
-      <button type="submit">Send</button>
-    </div>
-  </form>
-</section>
+    </form>
+  </section>
+</div>
 </body>
 </html>
