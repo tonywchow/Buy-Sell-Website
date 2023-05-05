@@ -1,32 +1,16 @@
 const db = require('../connection');
 
 
-const filterByMinPrice = (minPrice) => {
-  return `SELECT * FROM products WHERE price >= ${minPrice}`;
+const filterByMinPrice = (minPrice, query) => {
+  return query + ` AND price >= $${query.length + 1}`;
 };
 
-
-const filterByMaxPrice = (maxPrice) => {
-  return `SELECT * FROM products WHERE price <= ${maxPrice}`
+const filterByMaxPrice = (maxPrice, query) => {
+  return query + ` AND price <= $${query.length + 1}`;
 };
 
-const filterByPriceRange = (minPrice, maxPrice) => {
-  return `SELECT * FROM products WHERE price BETWEEN ${minPrice} AND ${maxPrice}`
+const filterByPriceRange = (minPrice, maxPrice, query) => {
+  return query + ` AND price BETWEEN $${query.length + 1} AND $${query.length + 2}`;
 };
-
-// const sortByLowToHighPrice = () => {
-//   return db.query('SELECT * FROM products ORDER BY price ASC;')
-//     .then(data => {
-//       return data.rows;
-//     });
-// };
-
-// const sortByHighToLowPrice = () => {
-//   return db.query('SELECT * FROM products ORDER BY price DESC;')
-//     .then(data => {
-//       return data.rows;
-//     });
-// };
-
 
 module.exports = { filterByMinPrice, filterByMaxPrice, filterByPriceRange };
