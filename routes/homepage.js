@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../db/connection");
 
 router.get("/", (req, res) => {
+  const queryParams = []
   const userId = req.session.user_id;
   const query = `
   SELECT products.*, users.id AS user_id, name, email, COALESCE(favourites.id, 0) AS favourite_id
@@ -14,7 +15,7 @@ router.get("/", (req, res) => {
   db.query(query, [userId])
     .then((data) => {
       const products = data.rows;
-      res.render("homepage", { products });
+      res.render("homepage", { products, queryParams });
     })
     .catch((err) => {
       console.log(err);
