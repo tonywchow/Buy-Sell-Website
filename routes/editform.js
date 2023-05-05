@@ -32,10 +32,16 @@ router.post("/:product_id/edit", (req, res) => {
   const description = req.body.description;
   const thumbnail_photo_url = req.body.thumbnail_photo_url;
   const price = req.body.price;
+<<<<<<< HEAD
 
   //Update prodcut based on the data obtained from the post request
   const query = `UPDATE products SET title = '${title}', description = '${description}', thumbnail_photo_url = '${thumbnail_photo_url}', price = ${price} WHERE products.id=${id}`;
   
+=======
+  const category = req.body.category;
+  const query = `UPDATE products SET title = '${title}', description = '${description}', thumbnail_photo_url = '${thumbnail_photo_url}', price = '${price}', category = '${category}' WHERE products.id= '${id}'`;
+  console.log("query: ", query);
+>>>>>>> 18bc3ccbd413d17d6afd3d86dd24e5bf234204ed
   db.query(query)
     .then(() => {
       res
