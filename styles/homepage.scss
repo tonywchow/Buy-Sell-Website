@@ -6,9 +6,6 @@
   top: 175px;
   left: 16px;
 }
-// .page-header {
-//   position: fixed;
-// }
 
 form {
   display: flex;
@@ -34,11 +31,11 @@ form {
   min-height: 100px;
   border-radius: 1em;
   justify-content: space-between;
-  // background-color: aliceblue;
+  background-color: wheat;
 }
 
 .product:hover {
-  // box-shadow: 4px 4px #d7d9f5;
+
   box-shadow: 4px 4px #072AC8;
 }
 
