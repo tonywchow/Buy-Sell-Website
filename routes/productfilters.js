@@ -12,30 +12,35 @@ router.get('/', (req, res) => {
   const category = req.query.category;
 
   let query = 'SELECT * FROM products';
+  const queryParams = {}; // Initialize an empty object to store query parameters.
 
   if (minPrice && maxPrice) {
     query = filterByPriceRange(minPrice, maxPrice);
+    queryParams['min-price'] = minPrice;
+    queryParams['max-price'] = maxPrice;
   } else if (minPrice) {
     query = filterByMinPrice(minPrice);
+    queryParams['min-price'] = minPrice;
   } else if (maxPrice) {
     query = filterByMaxPrice(maxPrice);
+    queryParams['max-price'] = maxPrice;
   }
 
-  if (category) {
-    query = filterByCategory(category, query);
-  }
+  query = filterByCategory(category, query);
+  queryParams['category'] = category;
 
   if (sort === 'low-to-high') {
     query = sortByLowToHigh(query);
+    queryParams['sort'] = 'low-to-high';
   } else if (sort === 'high-to-low') {
     query = sortByHighToLow(query);
+    queryParams['sort'] = 'high-to-low';
   }
 
   db.query(query)
     .then(data => {
       const products = data.rows;
-      console.log(products)
-      res.render('homepage', { products });
+      res.render('homepage', { products, queryParams }); // Pass the queryParams object to the template.
     })
     .catch(err => {
       console.log(err);
@@ -43,5 +48,6 @@ router.get('/', (req, res) => {
       res.status(500).send('Error retrieving products from database');
     });
 });
+
 
 module.exports = router;

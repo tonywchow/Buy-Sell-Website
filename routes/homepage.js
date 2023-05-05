@@ -3,12 +3,15 @@ const router = express.Router();
 const db = require("../db/connection");
 
 router.get("/", (req, res) => {
+  const userId = req.session.user_id;
   const query = `
-  SELECT products.*, users.id as user_id, name, email
+  SELECT products.*, users.id AS user_id, name, email, COALESCE(favourites.id, 0) AS favourite_id
   FROM products
-  JOIN users on users.id = user_id
+  JOIN users ON users.id = products.user_id
+  LEFT JOIN favourites ON favourites.product_id = products.id AND favourites.user_id = $1
+  ORDER BY created_at DESC;
   `;
-  db.query(query)
+  db.query(query, [userId])
     .then((data) => {
       const products = data.rows;
       res.render("homepage", { products });
@@ -18,5 +21,6 @@ router.get("/", (req, res) => {
       res.status(500).send("Error retrieving products from database");
     });
 });
+
 
 module.exports = router;
