@@ -32,15 +32,15 @@ router.post("/:product_id/edit", (req, res) => {
   // console.log("#4 id ", id);
   const title = req.body.title;
   const description = req.body.description;
-  const thumbnail_photo_url = req.body.photoURL;
+  const thumbnail_photo_url = req.body.thumbnail_photo_url;
+  console.log('test', req.body)
   const price = req.body.price;
   const query = `UPDATE products SET title = '${title}', description = '${description}', thumbnail_photo_url = '${thumbnail_photo_url}', price = ${price} WHERE products.id=${id}`;
   console.log("query: ", query);
   db.query(query)
     .then(() => {
       res
-        // .status(201)
-        // .send({ message: "product updated successfully!" })
+        .status(201)
         .redirect("/mylistings");
     }) //pass template vars with product list and a message
     .catch((error) => {

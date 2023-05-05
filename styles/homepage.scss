@@ -31,10 +31,11 @@ form {
   margin-bottom: 20px;
   border: 5px solid #FFC600;
   padding: 10px;
-  height: 100%;
+  height: auto;
   min-height: 100px;
   border-radius: 1em;
   justify-content: space-between;
+  // background-color: aliceblue;
 }
 
 .product:hover {
@@ -72,7 +73,6 @@ img {
   font-family: "Fredoka", cursive, sans-serif;
   border: 1px solid #FFC600;
   height: 100%;
-
 }
 
 .right-block {

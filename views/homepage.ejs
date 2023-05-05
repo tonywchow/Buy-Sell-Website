@@ -20,71 +20,45 @@
             <div class="price"><%= product.price %></div>
             <div class="contact-favourite">
               <a href="/email/<%=product.id%>"><%= product.email %></a>
-              <button class="favorite">Add to favorites</button>
+              <% if (product.favourite_id !== 0) { %>
+                <button class="favourite" data-product-id="<%= product.id %>">
+                  <i class="fas fa-heart"></i> Favourited
+                </button>
+              <% } else { %>
+                <button class="favourite" data-product-id="<%= product.id %>">
+                  <i class="far fa-heart"></i>
+                </button>
+              <% } %>
             </div>
           </div>
         </div>
         <% }); %>
       </div>
-
-  </body>
-  <div class="filter-container">
-    <form class="filter-options" method="get" action="/filters">
-      <label>Sort by:</label>
-      <select name="sort">
-        <option value="no-sort"></option>
-        <option value="low-to-high">Price: Low to High</option>
-        <option value="high-to-low">Price: High to Low</option>
-      </select>
-      <label>Price Range:</label>
-      <input type="number" name="min-price" placeholder="Minimum price">
-      <input type="number" name="max-price" placeholder="Maximum price">
-      <select id="category" name="category">
-        <option value="">Select a category</option>
-        <option value="Automotive">Automotive</option>
-        <option value="Bikes">Bikes</option>
-        <option value="Musical Instruments">Musical Instruments</option>
-        <option value="Audio">Audio</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Computers">Computers</option>
-        <option value="Gaming">Gaming</option>
-        <option value="Clothing">Clothing</option>
-      </select>
-      <button type="submit">Filter</button>
-    </form>
+      <div class="filter-container">
+        <form class="filter-options" method="get" action="/filters">
+          <label>Sort by:</label>
+          <select name="sort">
+            <option value="no-sort"></option>
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
+          </select>
+          <label>Price Range:</label>
+          <input type="number" name="min-price" placeholder="Minimum price">
+          <input type="number" name="max-price" placeholder="Maximum price">
+          <select id="category" name="category">
+            <option value="">Select a category</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Bikes">Bikes</option>
+            <option value="Musical Instruments">Musical Instruments</option>
+            <option value="Audio">Audio</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Computers">Computers</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Clothing">Clothing</option>
+          </select>
+          <button type="submit">Filter</button>
+        </form>
+    </body>
   </div>
-<<<<<<< HEAD
-=======
-  <div class="product-list">
-    <h1>Product Listings</h1>
-    <% products.forEach(function(product) { %>
-      <div class="product">
-        <div class="thumbnail">
-          <img src="<%= product.thumbnail %>" alt="<%= product.title %> thumbnail">
-        </div>
-        <div class="details">
-          <h2 class="title"><%= product.title %></h2>
-          <p class="description"><%= product.description %></p>
-        </div>
-        <div class="right-block">
-          <p class="price"><%= product.price %></p>
-          <div class="contact-favourite">
-            <a href="/email/<%=product.id%>"><%= product.email %></a>
-            <% if (product.favourite_id !== 0) { %>
-              <button class="favourite" data-product-id="<%= product.id %>">
-                <i class="fas fa-heart"></i> Favourited
-              </button>
-            <% } else { %>
-              <button class="favourite" data-product-id="<%= product.id %>">
-                <i class="far fa-heart"></i>
-              </button>
-            <% } %>
-          </div>
-        </div>
-      </div>
-    <% }); %>
-  </div>
-</body>
->>>>>>> a8df440624473678375054d16d7ce7ba32383160
 </html>
 
