@@ -5,8 +5,8 @@ Adding product to database
 */
 const addProduct = function (products) {
   let queryString = `
-  INSERT INTO products(user_id, title, description, thumbnail_photo_url, price)
-  VALUES ($1, $2, $3, $4, $5)
+  INSERT INTO products(user_id, title, description, thumbnail_photo_url, price, category)
+  VALUES ($1, $2, $3, $4, $5, $6);
   `;
 
   let values = [
@@ -15,6 +15,7 @@ const addProduct = function (products) {
     products.description,
     products.thumbnail_photo_url,
     products.price,
+    products.category
   ];
   return db
     .query(queryString, values)

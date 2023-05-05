@@ -44,6 +44,7 @@
           <label>Price Range:</label>
           <input type="number" name="min-price" placeholder="Minimum price" value="<%= queryParams['min-price'] || '' %>">
           <input type="number" name="max-price" placeholder="Maximum price" value="<%= queryParams['max-price'] || '' %>">
+          <label>Category:</label>
           <select id="category" name="category">
             <option value="" <%= !queryParams.category ? 'selected' : '' %>>-- Select a category --</option>
             <option value="Automotive" <%= queryParams.category === 'Automotive' ? 'selected' : '' %>>Automotive</option>
