@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   FROM products
   JOIN users ON users.id = products.user_id
   LEFT JOIN favourites ON favourites.product_id = products.id AND favourites.user_id = $1
-  ORDER BY created_at DESC;
+  ORDER BY timestamp DESC;
   `;
   db.query(query, [userId])
     .then((data) => {
