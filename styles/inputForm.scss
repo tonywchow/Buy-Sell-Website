@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+  font-family: "Fredoka", cursive, sans-serif;
+  font: 500;
 }
 
 .form-group {
@@ -9,7 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: wheat;
-  border: 5px solid #FFC600;
+  border: 5px solid #ffc600;
 }
 
 .elements {
@@ -33,4 +35,3 @@
   display: flex;
   justify-content: center;
 }
-
