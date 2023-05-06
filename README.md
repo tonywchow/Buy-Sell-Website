@@ -2,6 +2,8 @@
 
 Larry's List is the modern-day answer to the popular classified ads website, Craigslist. With a sleek and user-friendly interface, Larry's List allows users to buy and sell items in their local area with ease. Larry's List is a refreshing take on the traditional classified ads model, with a modern twist that appeals to the needs and interests of a contemporary audience. Whether you're looking to buy or sell items in your local area, Larry's List has everything you need to make the process fast, easy, and enjoyable.
 
+Credits to image Lighthouse Labs Logo.
+
 ## Larry's List ERD
 
 !["Screenshot of ERD"](./docs/ERD.png)
