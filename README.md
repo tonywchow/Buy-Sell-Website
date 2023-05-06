@@ -6,33 +6,33 @@ Credits to image Lighthouse Labs Logo.
 
 ## Larry's List ERD
 
-!["Screenshot of ERD"](./docs/ERD.png)
+!["Screenshot of ERD"](./db/docs/ERD.png)
 
 ## Final Product
 
 ### Homepage
 
-!["Screenshot of Homepage"](./docs/)
+!["Screenshot of Homepage"](./db/docs/homepage.png)
 
 ### Create Listing Page
 
-!["Screenshot of Create Listing Page"](./docs/)
+!["Screenshot of Create Listing Page"](./db/docs/create.png)
 
 ### My Listings Page
 
-!["Screenshot of My Listings Page"](./docs/)
+!["Screenshot of My Listings Page"](./db/docs/mylisting.png)
 
 ### Favourites
 
-!["Screenshot of Favourites"](./docs/)
+!["Screenshot of Favourites"](./db/docs/favourites.png)
 
 ### Contact User Page
 
-!["Screenshot of Contact User Page"](./docs/)
+!["Screenshot of Contact User Page"](./db/docs/email.png)
 
 #### Edit Post Page
 
-!["Screenshot of Edit Post Page"](./docs/)
+!["Screenshot of Edit Post Page"](./db/docs/edit.png)
 
 ## Project Structure
 
