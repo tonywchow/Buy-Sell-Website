@@ -113,9 +113,6 @@ Credits to Lighthouse Labs mascot Larry for being our Logo for our project.
 7. Run the server: `npm run local`
   - Note: nodemon is used, so you should not have to restart your server
 8. Visit `http://localhost:8080/`
-9. Install PostgreSQL and create database called lightbnb from the psql terminal using `CREATE TABLE` statement.
-10. Use `\i migrations/01_schema.sql` to add tables.
-11. Run `\i seeds/01_seeds.sql` & `\i seeds/02_seeds.sql` to add seed data to lightbnb database.
 
 ## Warnings & Tips
 
